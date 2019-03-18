@@ -13,3 +13,19 @@ router.get('/', (req, res) => {
 router.get('/:_id', (req, res) => {
 	Post.findOne({ _id: req.params._id }).then((post) => res.json(post));
 });
+
+router.post('/', (req, res) => {
+	Post.create(req.body).then((post) => res.json(post));
+});
+
+router.put('/:_id', (req, res) => {
+	Post.findOneAndUpdate({ _id: req.params._id }, req.body, {
+		new: true
+	}).then((post) => res.json(post));
+});
+
+router.delete('/:_id', (req, res) => {
+	Post.findOneAndRemove({ _id: req.params._id }).then((post) => res.json(post));
+});
+
+module.exports = router;
