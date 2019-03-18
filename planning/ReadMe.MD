@@ -17,55 +17,45 @@ So when you go to type this into your command line, it should read "npm i mongoo
 
 Give examples
 
-First fork and clone the repo down to your system. Navigate to the appropriate folder using your terminal. Once in the appropriate folder, you'll need to install the appropriate packages for the applicatino to work. First, you'll need to install the correct dependencies
+First fork and clone the repo down to your system. Navigate to the appropriate folder in two separate terminals.
 
+In the first terminal, you''l run the phrase "mongod," in teh command line This is going to start running the database system, which is you'll need in order to access the database. You should see a ton of lines of code and then it should end with an empty line, but you should not be in your command line anymore. 
 
-Once you have the repo, run the command "mongod" in one terminal to make sure your database is running. You should see a whole b. Once your database is running, run nodemon (if this doesn't work try npx nodemon) and this should set your thing to appear in the browser on localhost 3001 (if that's not working, you can set your localhost address by messing with the port in the index.js file). While nothing will pop up on the screen in terms of an actual website, you'll know it's working if it says it "Cannot GET '/'". 
+In the second terminal, you'll run the command "nodemon." (If that doesn't work, run the command 'npx nodemon') This is going to start your server and attach it to a local port. You'll need this in order to actually interact with the database. 
 
+Once you've run the command nodemon, you'll be able to check if it's working by going to localhost:3001 in your browser. Since this repo is a backend, you should only see a message that says "Cannot GET '/'". If you're seeing that message, you know it's working. 
 
-Installing
-A step by step series of examples that tell you how to get a development env running
+To interact with the database using the front end, you'll have to clone down the front end half of the application, follow the setup guide, and then you'll be able to use the application as intended
 
-Say what the step will be
-
-Give the example
-And repeat
-
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+If you don't want to do that for some reason, your other option =, as listed above, is to use Postman. Postman is a little bit complicated, but it's not too difficult to use. You'll open Postman, type the address into the bar at the top, and then you'll have to type out JSON requests into the body portion, make sure you're using the correct kind of request (the dropdown selector is located next to the address bar) and then press the big blue button on the far left to make your attempt.
 
 Running the tests
-Explain how to run the automated tests for this system
+Currently there are no tests and no plans to implement tests into the backend. For now at least.
 
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
 Deployment
-Add additional notes about how to deploy this on a live system
+If you want to deploy this to Heroku, be my guest, but I barely understand how it works
 
 Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+The MERN stack:
+Mongoose
+Express
+React
+Node
+It was also built with teamwork, hard work, sweat, a lot of tears, and at least two separate sacrifices to heroku.
 
 Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+We just have the old commits if you'd like to go back and look through them. It's nothing special, but you can watch our progress (and in some cases watch us lose our minds)
 
 Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+Chase Ross
+Joey Deras
+(Virginia Lash and Alsia Plybeah we're responsible for the front end mostly but helped out here and there)
 
 License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project isn't licensed. We're just learning to code. 
 
 Acknowledgments
 Hat tip to anyone whose code was used
-Inspiration
-etc
+Reddit is obviously a major design influence
+Joey is the broey
+Chase is the face
