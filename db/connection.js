@@ -8,9 +8,11 @@ const mongoose = require("../models/Post");
 //   .catch(connectionError => console.log("Connection Failed!", connectionError));
 
 if (process.env.NODE_ENV == "production") {
-  mongoose.connect(process.env.DB_URL);
+  mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
 } else {
-  mongoose.connect("mongodb://localhost/breaddit123");
+  mongoose.connect("mongodb://localhost/breaddit123", {
+    useNewUrlParser: true
+  });
 }
 
 mongoose.Promise = Promise;
