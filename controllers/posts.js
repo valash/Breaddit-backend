@@ -28,8 +28,21 @@ router.delete('/:_id', (req, res) => {
 	Post.findOneAndRemove({ _id: req.params._id }).then((post) => res.json(post));
 });
 
+//The Routes down here are for comments
+
+//creates comments
 router.put('/:_id', (req, res) => {
 	Post.findOneAndUpdate(
+		{ _id: req.params._id },
+		{ $push: { comments: { comment: req.body.comment } } }
+	).then((post) => {
+		res.json(post);
+	});
+});
+
+//deletes comments
+router.delete('/:_id', (req, res) => {
+	Post.findOneAndRemove(
 		{ _id: req.params._id },
 		{ $push: { comments: { comment: req.body.comment } } }
 	).then((post) => {
