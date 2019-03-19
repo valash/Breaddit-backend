@@ -8,4 +8,10 @@ mongoose
   .then(connection => console.log(`Connection Established to db`))
   .catch(connectionError => console.log("Connection Failed!", connectionError));
 
+if (process.env.NODE_ENV == "production") {
+  mongoose.connect(process.env.DB_URL);
+} else {
+  mongoose.connect("mongodb://localhost/breaddit123");
+}
+
 module.exports = mongoose;
