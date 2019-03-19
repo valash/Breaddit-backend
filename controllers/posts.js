@@ -33,7 +33,7 @@ router.put('/:_id', (req, res) => {
 		{ _id: req.params._id },
 		{ $push: { comments: { comment: req.body.comment } } }
 	).then((post) => {
-		res.redirect(`/post/${post._id}`);
+		res.json(post);
 	});
 });
 
