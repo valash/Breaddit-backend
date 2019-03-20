@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 	Post.find({}).then((posts) => res.json(posts));
 });
 
-router.get('/:_id', (req, res) => {
+router.get('/:id', (req, res) => {
 	Post.findOne({ _id: req.params._id }).then((post) => res.json(post));
 });
 
@@ -18,20 +18,20 @@ router.post('/', (req, res) => {
 	Post.create(req.body).then((post) => res.json(post));
 });
 
-router.put('/:_id', (req, res) => {
+router.put('/:id', (req, res) => {
 	Post.findOneAndUpdate({ _id: req.params._id }, req.body, {
 		new: true
 	}).then((post) => res.json(post));
 });
 
-router.delete('/:_id', (req, res) => {
+router.delete('/:id', (req, res) => {
 	Post.findOneAndRemove({ _id: req.params._id }).then((post) => res.json(post));
 });
 
 //The Routes down here are for comments
 
 //creates comments
-router.put('/:_id', (req, res) => {
+router.put('/:id', (req, res) => {
 	Post.findOneAndUpdate(
 		{ _id: req.params._id },
 		{ $push: { comments: { comment: req.body.comment } } }
@@ -41,13 +41,14 @@ router.put('/:_id', (req, res) => {
 });
 
 //deletes comments
-router.delete('/:_id', (req, res) => {
-	Post.findOneAndRemove(
-		{ _id: req.params._id },
-		{ $push: { comments: { comment: req.body.comment } } }
-	).then((post) => {
-		res.json(post);
-	});
+router.put('/:id/comments/:id', (req, res) => {
+	Post.findOneAndUpdate({ _id: req.params._id }, { $pull: { comments: { comment: req.params._id } } })
+		.then((post) => {
+			res.json(post);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 });
 
 module.exports = router;
