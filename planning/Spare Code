@@ -1,0 +1,8 @@
+This is just copy and pasted code that might have a use later, but for right now need to not be where it is
+
+from controllers/posts.js
+router.put('/:_id', (req, res) => {
+	Post.findOneAndUpdate({ _id: req.params._id }, { $pop: { comments: { comment } } }).then((post) => {
+		res.json(post);
+	});
+});
