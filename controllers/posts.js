@@ -5,12 +5,13 @@ const router = express.Router();
 
 const mongoose = require('../db/connection');
 const Post = mongoose.model('Post');
+const Comment = mongoose.model('Comment');
 
 router.get('/', (req, res) => {
 	Post.find({}).then((posts) => res.json(posts));
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:_id', (req, res) => {
 	Post.findOne({ _id: req.params._id }).then((post) => res.json(post));
 });
 
@@ -18,20 +19,20 @@ router.post('/', (req, res) => {
 	Post.create(req.body).then((post) => res.json(post));
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:_id', (req, res) => {
 	Post.findOneAndUpdate({ _id: req.params._id }, req.body, {
 		new: true
 	}).then((post) => res.json(post));
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:_id', (req, res) => {
 	Post.findOneAndRemove({ _id: req.params._id }).then((post) => res.json(post));
 });
 
 //The Routes down here are for comments
 
 //creates comments
-router.put('/:id', (req, res) => {
+router.put('/:_id', (req, res) => {
 	Post.findOneAndUpdate(
 		{ _id: req.params._id },
 		{ $push: { comments: { comment: req.body.comment } } }
@@ -41,14 +42,12 @@ router.put('/:id', (req, res) => {
 });
 
 //deletes comments
-router.put('/:id/comments/:id', (req, res) => {
-	Post.findOneAndUpdate({ _id: req.params._id }, { $pull: { comments: { comment: req.params._id } } })
-		.then((post) => {
+router.delete('/:postId/comments/:commentId', (req, res) => {
+	Post.findOne({ _id: req.params.postId }).then((post) => {
+		Comment.findOneAndDelete({ _id: req.params.commentId }).then((post) => {
 			res.json(post);
-		})
-		.catch((err) => {
-			console.log(err);
 		});
+	});
 });
 
 module.exports = router;
