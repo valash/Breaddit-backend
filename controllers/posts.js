@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mongoose = require('../db/connection');
+const mongoose = require('../models/Post');
 const Post = mongoose.model('Post');
 
 router.get('/', (req, res) => {
