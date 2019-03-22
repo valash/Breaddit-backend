@@ -21,7 +21,7 @@ So when you go to type this into your command line, it should read `npm i mongoo
 
 First fork and clone the repo down to your system. Navigate to the appropriate folder in two separate terminals.
 
-In the first terminal, you'll run the phrase `mongod`, in the command line. This is going to start running the database system, which is what you'll need in order to access the database. You should see a ** ton ** of lines of code and then it should end with an empty line, but you should not be in your command line anymore.
+In the first terminal, you'll run the phrase `mongod`, in the command line. This is going to start running the database system, which is what you'll need in order to access the database. You should see a **ton** of lines of code and then it should end with an empty line, but you should not be in your command line anymore.
 
 In the second terminal, you'll run the command `nodemon`. (If that doesn't work, run the command `npx nodemon`) This is going to start your server and attach it to a local port. You'll need this in order to actually interact with the database.
 
@@ -29,7 +29,7 @@ Once you've run the command nodemon, you'll be able to check if it's working by 
 
 To interact with the database using the front end, you'll have to clone down the front end half of the application, follow the setup guide, and then you'll be able to use the application as intended
 
-If you don't want to do that for some reason, your other option as listed above is to use Postman. Postman is a little bit complicated, but it's not too difficult to use. You'll open Postman, type the address into the bar at the top, and then you'll have to type out ** JSON ** requests into the body portion, make sure you're using the correct kind of request (the dropdown selector is located next to the address bar) and then press the big blue button on the far left to make your attempt.
+If you don't want to do that for some reason, your other option as listed above is to use Postman. Postman is a little bit complicated, but it's not too difficult to use. You'll open Postman, type the address into the bar at the top, and then you'll have to type out **JSON** requests into the body portion, make sure you're using the correct kind of request (the dropdown selector is located next to the address bar) and then press the big blue button on the far left to make your attempt.
 
 ### Running the tests
 
