@@ -4,7 +4,7 @@ const mongoose = require('../models/Post');
 if (process.env.NODE_ENV == 'production') {
 	mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
 } else {
-	mongoose.connect('mongodb://localhost/breaddit123', {
+	mongoose.connect('mongodb://localhost/Breaddit', {
 		useNewUrlParser: true
 	});
 }
