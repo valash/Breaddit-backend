@@ -63,5 +63,6 @@ This project isn't licensed. We're just learning to code.
 
 Hat tip to anyone whose code was used
 Reddit is obviously a major design influence
-... Joey is the broey ..
-... Chase is the face ..
+
+Joey is the broey\
+Chase is the face
